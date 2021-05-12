@@ -135,7 +135,12 @@ main {}
       grid-column: 3 / -2;
     }
 
-
+@media and (max-width: 599px) {
+  main section > *,
+  main aside > * {
+    grid-column: 2 / -2;
+  }
+}
 
 
 /***** BODY TEXT *****/
