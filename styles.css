@@ -105,22 +105,31 @@ footer {
 
 main {}
 
-  main section {
+  main section,
+  main aside {
     display: grid;
+    padding-top: var(--leading);
+    padding-bottom: var(--leading);
+    padding-block: var(--leading);
+  }
+
+  main section {
     grid-template-columns: var(--grid-template-columns);
     grid-template-columns: minmax(var(--leading), 1fr)
                            repeat( 6, minmax( min-content, 15ch ) )
                            minmax(var(--leading), 1fr);
-
-    padding-top: var(--leading);
-    padding-bottom: var(--leading);
-    padding-block: var(--leading);
   }
 
     main section > * {
       grid-column: 3 / -2;
     }
 
+  main aside {
+    grid-template-columns: var(--grid-template-columns);
+    grid-template-columns: minmax(var(--leading), 1fr)
+                           repeat( 2, minmax( min-content, 15ch ) )
+                           minmax(var(--leading), 1fr);
+  }
 
 
 
