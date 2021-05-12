@@ -127,7 +127,7 @@ main {}
   main aside {
     grid-template-columns: var(--grid-template-columns);
     grid-template-columns: minmax(var(--leading), 1fr)
-                           repeat( 2, minmax( min-content, 15ch ) )
+                           repeat( 2, minmax( min-content, 45ch ) )
                            minmax(var(--leading), 1fr);
   }
 
