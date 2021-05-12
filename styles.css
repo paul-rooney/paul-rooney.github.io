@@ -135,6 +135,14 @@ main {}
       grid-column: 3 / -2;
     }
 
+  section article {
+    display: block;
+  }
+
+  section article {
+    grid-column: 2 / -2;
+  }
+
 @media screen and (max-width: 599px) {
   main section > *,
   main aside > * {
