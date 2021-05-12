@@ -194,6 +194,8 @@ a {
       transition: height 125ms ease-out;
     } */
 
+address { font-variant: normal; }
+
 strong { font-weight: 500; }
 
 em {}
