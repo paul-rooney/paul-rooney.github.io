@@ -131,6 +131,10 @@ main {}
                            minmax(var(--leading), 1fr);
   }
 
+    main aside > * {
+      grid-column: 3 / -2;
+    }
+
 
 
 
@@ -194,7 +198,7 @@ a {
       transition: height 125ms ease-out;
     } */
 
-address { font-variant: normal; }
+address { font-style: normal; }
 
 strong { font-weight: 500; }
 
