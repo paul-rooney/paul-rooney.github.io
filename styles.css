@@ -28,6 +28,7 @@
   --lightness: 15%;
 
   --primary: hsl( var(--hue), var(--saturation), var(--lightness) );
+  --theme-color: hsl( var(--hue), var(--saturation), var(--lightness) );
   --surface: hsl(240, 10%, 98%);
 
   --gold: hsl(30, 65%, 72%);
