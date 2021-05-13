@@ -132,15 +132,23 @@ main {}
   }
 
     main aside > * {
-      grid-column: 3 / -2;
+      grid-column: 2 / -2;
     }
 
   section article {
-    display: block;
+    display: grid;
   }
 
   section article {
     grid-column: 2 / -2;
+  }
+
+  section article header {
+    grid-column: 2;
+  }
+
+  section article main {
+    grid-column: 3 / -2;
   }
 
 @media screen and (max-width: 599px) {
