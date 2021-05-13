@@ -57,7 +57,7 @@
 
 
   /* TYPEFACES */
-  --body-text: Poppins, Rubik;
+  --body-text: ;
 }
 
 
@@ -103,11 +103,17 @@ footer {
     grid-column: 2;
   }
 
-main {}
+main {
+  display: grid;
+  grid-template-columns: minmax(var(--leading), 1fr)
+                         minmax(min-content, 90ch)
+                         minmax(var(--leading), 1fr);
+}
 
   main section,
   main aside {
-    display: grid;
+    display: block;
+    grid-column: 1;
     padding-top: var(--leading);
     padding-bottom: var(--leading);
     padding-block: var(--leading);
@@ -151,10 +157,18 @@ main {}
     grid-column: 3 / -2;
   }
 
-@media screen and (max-width: 599px) {
+@media screen and (min-width: 600px) {
   main section > *,
   main aside > * {
     grid-column: 2 / -2;
+  }
+  
+  main section {
+    grid-column: 2;
+  }
+  
+  main aside {
+    grid-column: 1;
   }
 }
 
@@ -189,35 +203,6 @@ a {
   position: relative;
   font-weight: 500;
 }
-
-  /* a::before {
-    background-color: hsl( calc( var(--hue) - 120 ), var(--saturation), 37.5% );
-    content: '';
-
-    height: 2px;
-    block-size: 2px;
-
-    width: 100%;
-    inline-size: 100%;
-
-    position: absolute;
-
-    bottom: -1.25em;
-    inset-block-end: -.125em;
-
-    left: 0;
-    inset-inline-start: 0;
-  } */
-
-  /* a:hover {
-    color: var(--surface);
-    transition: color 125ms ease-out 125ms;
-  }
-
-    a:hover::before {
-      height: calc( 100% + .125em );
-      transition: height 125ms ease-out;
-    } */
 
 address { font-style: normal; }
 
@@ -280,7 +265,6 @@ h3,
 h4,
 h5,
 h6 {
-  /* font-family: 'Barlow Condensed'; */
   font-variant-ligatures: discretionary-ligatures;
   font-weight: 500;
   line-height: 1;
@@ -309,28 +293,6 @@ h3 {
   margin-block-end: calc( var(--leading) * 2 );
   position: relative;
 }
-
-  /* h1::after,
-  h2::after,
-  h3::after {
-    background-color: var(--primary);
-    content: '';
-    display: block;
-
-    height: .125rem;
-    block-size: .125rem;
-
-    width: 1ch;
-    inline-size: 1ch;
-
-    position: absolute;
-
-    bottom: 0;
-    inset-block-end: 0;
-
-    left: 0;
-    inset-inline-start: 0;
-  } */
 
 h1 {
   font-size: var(--step-5);
@@ -371,42 +333,6 @@ blockquote {
 
   position: relative;
 }
-
-  /* blockquote::before,
-  blockquote::after {
-    content: '';
-    display: block;
-
-    height: 1ch;
-    block-size: 1ch;
-
-    width: 1ch;
-    inline-size: 1ch;
-
-    position: absolute;
-  }
-
-  blockquote::before {
-    border-top: .125rem solid var(--primary);
-    border-right: .125rem solid var(--primary);
-
-    top: 0;
-    inset-block-start: 0;
-
-    right: 0;
-    inset-inline-end: 0;
-  }
-
-  blockquote::after {
-    border-bottom: .125rem solid var(--primary);
-    border-left: .125rem solid var(--primary);
-
-    bottom: 0;
-    inset-block-end: 0;
-
-    left: 0;
-    inset-inline-start: 0;
-  } */
 
   blockquote p {
     font-size: inherit;
