@@ -87,7 +87,7 @@ body {
   margin: 0;
 }
 
-header,
+header:not(article header),
 footer {
   display: grid;
   grid-template-columns: var(--grid-template-columns);
