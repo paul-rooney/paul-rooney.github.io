@@ -64,7 +64,9 @@ body {
     }
 
 
-
+    section article header + main {
+      margin-top: 0;
+    }
 
 
   aside,
@@ -128,6 +130,7 @@ body {
 
 @media (max-width: 599px) {
   :root {
+    --text-2: calc(var(--text-0) * 1.4);
     --text-3: calc(var(--text-0) * 3);
   }
 }
@@ -162,8 +165,9 @@ h2 {
 h2:not(.header h2) {
   font-size: var(--text-0);
   letter-spacing: .1em;
-  margin-top: calc(var(--gap) * 3);
-  margin-bottom: var(--gap);
+  margin-top: calc(var(--gap) * 4);
+  margin-bottom: calc(var(--gap) * 2);
+  /* margin-bottom: 0; */
   position: relative;
   text-transform: uppercase;
 }
@@ -190,6 +194,7 @@ h2:not(.header h2) {
 h3 {
   font-size: var(--text-0);
   margin-top: calc(var(--gap) * 2);
+  /* margin-top: 0; */
 }
 
 p,
@@ -213,6 +218,7 @@ h2 + address,
 h2 + article,
 article + article {
   margin-top: calc(var(--gap) * 2);
+  margin-top: calc(var(--gap) * 1);
 }
 
 p.italic {
@@ -240,6 +246,10 @@ tbody {
   vertical-align: baseline;
 }
 
+tbody td {
+  font-style: italic;
+}
+
 table td {
   padding: 0;
   width: 50%;
@@ -249,8 +259,13 @@ table {
   max-width: 75ch;
   width: 100%;
   border-spacing: 0;
+  border: none;
 }
 
 thead {
   text-align: left;
+}
+
+th {
+  line-height: 1.2;
 }
