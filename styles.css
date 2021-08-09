@@ -37,6 +37,10 @@ body {
     justify-self: end;
   }
 
+    section article header + main {
+      margin-top: var(--gap);
+    }
+
 @media (min-width: 600px) {
 
   .header {
@@ -85,6 +89,7 @@ body {
   }
 
   section article {
+    align-items: baseline;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-column-gap: var(--gap);
@@ -115,10 +120,16 @@ body {
 :root {
   --text-0: 16px;
   --text-1: 18px;
-  --text-2: 24px;
-  --text-3: 32px;
+  --text-2: calc(var(--text-0) * 1.65);
+  --text-3: calc(var(--text-0) * 3.75);
 
   --gap: 1rem;
+}
+
+@media (max-width: 599px) {
+  :root {
+    --text-3: calc(var(--text-0) * 3);
+  }
 }
 
 body {
@@ -144,6 +155,7 @@ h1 {
 }
 
 h2 {
+  font-size: var(--text-2);
   letter-spacing: -.025em;
 }
 
@@ -198,7 +210,8 @@ a {
 
 h2 + p,
 h2 + address,
-h2 + article {
+h2 + article,
+article + article {
   margin-top: calc(var(--gap) * 2);
 }
 
@@ -222,12 +235,19 @@ ul {
 
 /* TABLES */
 
+thead,
+tbody {
+  vertical-align: baseline;
+}
+
 table td {
   padding: 0;
+  width: 50%;
 }
 
 table {
-  width: 38%;
+  max-width: 75ch;
+  width: 100%;
   border-spacing: 0;
 }
 
