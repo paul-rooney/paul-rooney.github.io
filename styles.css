@@ -1,22 +1,35 @@
-/* LAYOUT */
 :root {
   --color-accent: #D66B74;
+  --color-accent: rgb(199, 88, 75);
+
+  --text-0: 16px;
+  --text-1: 18px;
+  --text-2: calc(var(--text-0) * 1.4);
+  --text-3: calc(var(--text-0) * 3);
+
+  --gap: 1rem;
 }
 
 html {
   background-color: #282C34;
+  background-color: rgb(250, 250, 250);
 }
 
 body {
   color: #A8AFBB;
+  color: rgb(59, 61, 67);
   display: grid;
+  font-family: 'Arsenal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   grid-template-columns: 1fr;
   grid-template-rows: min-content
                       1fr
                       min-content;
+  line-height: 1.4;
 }
 
-  body > * {
+  .header,
+  .main,
+  .footer {
     align-items: baseline;
     display: grid;
     grid-template-columns: minmax(calc(var(--gap) * 2), 1fr)
@@ -41,145 +54,26 @@ body {
       margin-top: var(--gap);
     }
 
-@media (min-width: 600px) {
-
-  .header {
-    grid-template-columns: minmax(calc(var(--gap) * 2), 1fr)
-                           minmax(min-content, 600px)
-                           minmax(min-content, 600px)
-                           minmax(calc(var(--gap) * 2), 1fr);
+  h1, h2, h3, h4 {
+    font-family: var(--font);
+    line-height: 1.2;
   }
 
-    .header > * {
-      grid-row: 1;
+  h1 {
+    font-size: var(--text-3);
+    letter-spacing: -.0375em;
+    margin-top: calc(var(--gap) * 4);
+    margin-bottom: var(--gap);
+  }
+
+    h1::after {
+      content: '.';
+      color: var(--color-accent);
     }
 
-    .header h1 {
-      grid-column: 2;
-    }
-
-    .header h2 {
-      grid-column: 3;
-      text-align: right;
-    }
-
-
-    section article header + main {
-      margin-top: 0;
-    }
-
-
-  aside,
-  section {
-    align-items: baseline;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-column-gap: var(--gap);
-  }
-
-  aside > * {
-    grid-column: 1;
-  }
-
-  section > * {
-    grid-column: 2;
-  }
-
-  aside,
-  section:nth-of-type(1) {
-    grid-row: 1;
-  }
-
-  section article {
-    align-items: baseline;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-column-gap: var(--gap);
-    grid-column: 1 / -1;
-  }
-
-  section article header {
-    grid-column: 1;
-    padding-right: var(--gap);
-    text-align: right;
-  }
-
-  section article main {
-    grid-column: 2;
-  }
-
-}
-
-
-
-
-
-
-
-
-
-/* TYPOGRAPHY */
-:root {
-  --text-0: 16px;
-  --text-1: 18px;
-  --text-2: calc(var(--text-0) * 1.65);
-  --text-3: calc(var(--text-0) * 3.75);
-
-  --gap: 1rem;
-}
-
-@media (max-width: 599px) {
-  :root {
-    --text-2: calc(var(--text-0) * 1.4);
-    --text-3: calc(var(--text-0) * 3);
-  }
-}
-
-body {
-  font-family: 'Arsenal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  line-height: 1.4;
-}
-
-h1, h2, h3, h4 {
-  font-family: var(--font);
-  line-height: 1.2;
-}
-
-h1 {
-  font-size: var(--text-3);
-  letter-spacing: -.0375em;
-  margin-top: calc(var(--gap) * 4);
-  margin-bottom: var(--gap);
-}
-
-.header h1::after {
-  content: '.';
-  color: var(--color-accent);
-}
-
-h2 {
-  font-size: var(--text-2);
-  letter-spacing: -.025em;
-}
-
-h2:not(.header h2) {
-  font-size: var(--text-0);
-  letter-spacing: .1em;
-  margin-top: calc(var(--gap) * 4);
-  margin-bottom: calc(var(--gap) * 2);
-  /* margin-bottom: 0; */
-  position: relative;
-  text-transform: uppercase;
-}
-
-  h2:not(.header h2)::after {
-    content: '';
-    position: absolute;
-    width: 5mm;
-    height: 1px;
-    background-color: var(--color-accent);
-    bottom: -1em;
-    left: 0;
+  h2 {
+    font-size: var(--text-2);
+    letter-spacing: -.025em;
   }
 
   .header h2 {
@@ -191,77 +85,98 @@ h2:not(.header h2) {
     font-weight: bold;
   }
 
-h3 {
-  font-size: var(--text-0);
-  margin-top: calc(var(--gap) * 2);
-  /* margin-top: 0; */
-}
-
-p,
-li {
-  font-family: var(--font-body);
-  font-size: var(--text-0);
-  max-width: 75ch;
-}
-
-a {
-  color: inherit;
-}
-
-  a:focus,
-  a:hover {
-    color: var(--color-accent);
+  h2:not(.header h2) {
+    font-size: var(--text-0);
+    letter-spacing: .1em;
+    margin-top: calc(var(--gap) * 4);
+    margin-bottom: calc(var(--gap) * 2);
+    /* margin-bottom: 0; */
+    position: relative;
+    text-transform: uppercase;
   }
 
-h2 + p,
-h2 + address,
-h2 + article,
-article + article {
-  margin-top: calc(var(--gap) * 2);
-  margin-top: calc(var(--gap) * 1);
-}
+    h2:not(.header h2)::after {
+      content: '';
+      position: absolute;
+      width: 5mm;
+      height: 1px;
+      background-color: var(--color-accent);
+      bottom: -1em;
+      left: 0;
+    }
 
-ul {
-  padding-left: 0;
-  list-style-type: circle;
-  margin-top: 0;
-}
+  h3 {
+    font-size: var(--text-0);
+    margin-top: calc(var(--gap) * 2);
+    /* margin-top: 0; */
+  }
+
+  p,
+  li {
+    font-family: var(--font-body);
+    font-size: var(--text-0);
+    max-width: 75ch;
+  }
+
+  a {
+    color: inherit;
+  }
+
+    a:focus,
+    a:hover {
+      color: var(--color-accent);
+    }
+
+  h2 + p,
+  h2 + address,
+  h2 + article,
+  article + article {
+    margin-top: calc(var(--gap) * 2);
+    margin-top: calc(var(--gap) * 1);
+  }
+
+  ul {
+    padding-left: 0;
+    list-style-type: circle;
+    margin-top: 0;
+  }
+
+  table {
+    max-width: 75ch;
+    width: 100%;
+    border-spacing: 0;
+    border: none;
+  }
+
+    thead,
+    tbody {
+      vertical-align: baseline;
+    }
+
+    thead {
+      text-align: left;
+    }
+
+      th {
+        line-height: 1.2;
+      }
+
+      td {
+        padding: 0;
+        width: 50%;
+      }
+
+      tbody td {
+        font-style: italic;
+      }
 
 @media (min-width: 600px) {
+  :root {
+    --text-2: calc(var(--text-0) * 1.65);
+    --text-3: calc(var(--text-0) * 3.75);
+  }
 
   h3 {
     margin-top: 0;
   }
-
-}
-
-/* TABLES */
-
-thead,
-tbody {
-  vertical-align: baseline;
-}
-
-tbody td {
-  font-style: italic;
-}
-
-table td {
-  padding: 0;
-  width: 50%;
-}
-
-table {
-  max-width: 75ch;
-  width: 100%;
-  border-spacing: 0;
-  border: none;
-}
-
-thead {
-  text-align: left;
-}
-
-th {
-  line-height: 1.2;
 }
