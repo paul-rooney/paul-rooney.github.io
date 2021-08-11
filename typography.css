@@ -43,8 +43,8 @@ time {
 .page__heading {
   font-size: 3rem;
   letter-spacing: -.0375em;
-  margin-top: calc(var(--gap) * 2);
-  margin-bottom: var(--gap);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
   .page__heading::after {
