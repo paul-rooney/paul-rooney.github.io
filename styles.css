@@ -1,6 +1,6 @@
 :root {
   --color-accent: #C7584B;
-  --gap: 2rem;
+  --gap: 1rem;
 }
 
 *,
@@ -140,6 +140,10 @@ body {
       }
 
 @media (min-width: 900px) {
+
+  :root {
+    --gap: 2rem;
+  }
 
   .page__heading {
     font-size: 60px;
