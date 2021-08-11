@@ -1,6 +1,6 @@
 :root {
   --color-accent: #C7584B;
-  --gap: 1rem;
+  --gap: 2rem;
 }
 
 *,
@@ -60,7 +60,7 @@ body {
 
   .footer > * {
     justify-self: end;
-    margin: calc(var(--gap) * 4) 0 calc(var(--gap) * 2);
+    margin: calc(var(--gap) * 2) 0 calc(var(--gap) * 1);
     text-align: right;
   }
 
@@ -71,8 +71,8 @@ body {
     .section__heading {
       font-size: var(--text-0);
       letter-spacing: .1em;
-      margin-top: calc(var(--gap) * 4);
-      margin-bottom: calc(var(--gap) * 2);
+      margin-top: calc(var(--gap) * 2);
+      margin-bottom: calc(var(--gap) * 1);
       position: relative;
       text-transform: uppercase;
     }
@@ -88,8 +88,7 @@ body {
       }
 
     .section__content {
-      margin-top: calc(var(--gap) * 2);
-      margin-top: calc(var(--gap) * 1);
+      margin-top: calc(var(--gap) * .5);
     }
 
 
@@ -98,7 +97,7 @@ body {
 
       .subsection__heading {
         font-size: var(--text-0);
-        margin-top: calc(var(--gap) * 2);
+        margin-top: calc(var(--gap) * 1);
       }
 
       .subsection__content {
@@ -106,17 +105,10 @@ body {
       }
 
       .subsection + .subsection {
-        margin-top: calc(var(--gap) * 2);
-        margin-top: var(--gap);
+        margin-top: calc(var(--gap) * 1);
       }
 
 
-
-  ul {
-
-    list-style-type: circle;
-    margin-top: 0;
-  }
 
   table {
     max-width: 75ch;
@@ -147,7 +139,8 @@ body {
         font-style: italic;
       }
 
-@media (min-width: 600px) {
+@media (min-width: 900px) {
+
   .page__heading {
     font-size: 60px;
   }
@@ -156,7 +149,56 @@ body {
       font-size: 28px;
     }
 
-  .subsection__heading {
-    margin-top: 0;
+
+
+  .section {
+    display: grid;
+    grid-column-gap: var(--gap);
+    grid-template-columns: 1fr 2fr;
   }
+
+    .section__heading {
+      grid-column: 2;
+    }
+
+    .section__content {
+      grid-column: 1 / -1;
+
+      align-items: baseline;
+      display: grid;
+      grid-column-gap: var(--gap);
+      grid-template-columns: 1fr 2fr;
+      margin-top: 0;
+    }
+
+
+
+      .subsection__header {
+        grid-column: 1;
+      }
+
+        .subsection__heading {
+          margin-top: 0;
+        }
+
+      .subsection__content {
+        grid-column: 2;
+        margin-top: 0;
+      }
+
+
+
+    .section#contact,
+    .section#profile {
+      grid-row: 1;
+    }
+
+      .section#contact > * {
+        grid-column: 1;
+      }
+
+      .section#profile > *{
+        grid-column: 2;
+      }
+
 }
