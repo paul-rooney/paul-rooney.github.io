@@ -2,14 +2,21 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font);
   line-height: 1.2;
+  font-family: var(--font);
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
 }
 
 p,
 li {
   font-family: var(--font-body);
-  font-size: var(--text-0);
+  font-size: 1rem;
+  margin: 0;
   max-width: 75ch;
 }
 
@@ -22,12 +29,18 @@ a {
     color: var(--color-accent);
   }
 
+address {
+  font-style: normal;
+}
+
 time {
   font-style: italic;
 }
 
+
+
 .page__heading {
-  font-size: var(--text-3);
+  font-size: 3rem;
   letter-spacing: -.0375em;
   margin-top: calc(var(--gap) * 4);
   margin-bottom: var(--gap);
@@ -39,6 +52,12 @@ time {
   }
 
   .page__subheading {
-    font-size: var(--text-2);
+    font-size: 1.5rem;
+    font-weight: normal;
     letter-spacing: -.025em;
   }
+
+    .page__subheading__highlight {
+      color: var(--color-accent);
+      font-weight: bold;
+    }
