@@ -1,23 +1,9 @@
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font);
   line-height: 1.2;
-}
-
-h1 {
-  font-size: var(--text-3);
-  letter-spacing: -.0375em;
-  margin-top: calc(var(--gap) * 4);
-  margin-bottom: var(--gap);
-}
-
-  h1::after {
-    content: '.';
-    color: var(--color-accent);
-  }
-
-h2 {
-  font-size: var(--text-2);
-  letter-spacing: -.025em;
 }
 
 p,
@@ -39,3 +25,20 @@ a {
 time {
   font-style: italic;
 }
+
+.page__heading {
+  font-size: var(--text-3);
+  letter-spacing: -.0375em;
+  margin-top: calc(var(--gap) * 4);
+  margin-bottom: var(--gap);
+}
+
+  .page__heading::after {
+    content: '.';
+    color: var(--color-accent);
+  }
+
+  .page__subheading {
+    font-size: var(--text-2);
+    letter-spacing: -.025em;
+  }
