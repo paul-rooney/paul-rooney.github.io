@@ -111,34 +111,36 @@ body {
 
 
 
-  table {
+  .table {
     max-width: 75ch;
     width: 100%;
     border-spacing: 0;
     border: none;
   }
 
-    thead,
-    tbody {
+    .table__header,
+    .table__content {
       vertical-align: baseline;
     }
 
-    thead {
+    .table__header {
       text-align: left;
     }
 
-      th {
+      .table__heading {
         line-height: 1.2;
       }
 
-      td {
+    .table__content {
+      font-style: italic;
+    }
+
+      .table__entry {
         padding: 0;
         width: 50%;
       }
 
-      tbody td {
-        font-style: italic;
-      }
+
 
 @media (min-width: 900px) {
 

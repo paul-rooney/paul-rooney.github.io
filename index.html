@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
 
-  <title>CV &middot; Paul Rooney</title>
+  <title>Home &middot; Paul Rooney</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +22,17 @@
 </head>
 
 <body class="body">
+  <nav class="nav">
+    <ul class="nav__menu">
+      <li class="nav__item">
+        <a href="./" class="nav__link">Projects</a>
+      </li>
+      <li class="nav__item">
+        <a href="./cv.html" class="nav__link">CV</a>
+      </li>
+    </ul>
+  </nav>
+
   <header class="header">
     <h1 class="page__heading">Paul Rooney</h1>
     <h2 class="page__subheading">
@@ -30,131 +41,17 @@
   </header>
 
   <main class="main">
-    <section id="contact" class="section">
-      <h2 class="section__heading">Contact details</h2>
-      <address class="">
-        33 Victoria Gardens<br>
-        Belfast<br>
-        BT15 5DD<br>
-        <br>
-        <a href="tel:00447716610830">+44 (0)7716 610830</a><br>
-        <a href="mailto:paulrooney90@gmail.com?subject=You&rsquo;re%20hired!">paulrooney90@gmail.com</a>
-      </address>
-    </section>
 
-
-
-    <section id="profile" class="section">
-      <h2 class="section__heading">Personal profile</h2>
-      <p class="">Personable professional with a specific interest in front-end design and development. Several years’ experience in a front-end developer role, with a background in web and graphic design. A broad skill set supplemented by continual self-study and an interest in ongoing personal and professional development. Quick and willing to learn and explore new technologies, and seeking a suitable position within a modern and innovative company while continuing to develop my skills alongside creative and talented people.</p>
-    </section>
-
-
-
-    <section id="experience" class="section">
-      <h2 class="section__heading">Experience</h2>
-      <article class="section__content subsection">
-        <header class="subsection__header">
-          <h3 class="subsection__heading">BMF Business Services Ltd.</h3>
-          <p>Web developer</p>
-          <p><time>Apr 2018&ndash;present</time></p>
-        </header>
-        <main class="subsection__content">
-          <ul>
-            <li>Working in a demanding role across multiple disciplines, with a primary focus on the rapid design and development of event websites and landing pages for more than twenty-five annual conferences across Ireland. Where possible, websites are written in semantic HTML and make use of modular, cross-browser-compliant CSS and JavaScript.</li>
-            <li>Responsible for the design and maintainence of two large publications websites, including advertisements, and adding additional features as needed.</li>
-            <li>Creating e-mail marketing campaigns and associated graphics, along with the development of these campaigns in progressively-enhanced, responsive HTML where a more customised layout is called for, or through Campaign Monitor.</li>
-            <li>Designing print-ready promotional brochures for conferences, occasionally alongside event sponsors.</li>
-          </ul>
-        </main>
-      </article>
-
-      <article class="section__content subsection">
-        <header class="subsection__header">
-          <h3 class="subsection__heading">Rooney Graphics</h3>
-          <p>Freelance web and graphic designer</p>
-          <p><time>Oct 2014&ndash;Apr 2018</time></p>
-        </header>
-        <main class="subsection__content">
-          <ul>
-            <li>Sole responsibility for a wide range of projects involving meeting face-to-face with clients to establish a design brief. Working on and managing multiple projects simultaneously and communicating with the client throughout.</li>
-            <li>Conducting research into competitors and identifying common trends, helping to create branding with individuality.</li>
-            <li>Creating logos, advertisements, web banners, and promotional materials.</li>
-            <li>Developing brand guidelines to accompany client branding projects.</li>
-            <li>Designing wireframes and initial sketches for client feedback.</li>
-            <li>Building fast-loading, responsive, progressively-enhanced, accessible websites.</li>
-            <li>Integrating lightweight CMS to sites as required by clients.</li>
-            <li>Setting up e-mail accounts for clients and providing ongoing technical support.</li>
-            <li>Developed and maintained client relationships to establish repeat work and referrals.</li>
-          </ul>
-        </main>
-      </article>
-    </section>
-
-
-
-    <section id="education" class="section">
-      <h2 class="section__heading">Education</h2>
-      <article class="section__content subsection">
-        <header class="subsection__header">
-          <h3 class="subsection__heading">University of Edinburgh</h3>
-          <p><time>2013</time></p>
-        </header>
-        <main class="subsection__content">
-          <table>
-            <thead>
-              <tr>
-                <th colspan="2">BSc (Hons)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Geography</td>
-                <td>2:2</td>
-              </tr>
-            </tbody>
-          </table>
-        </main>
-      </article>
-
-      <article class="section__content subsection">
-        <header class="subsection__header">
-          <h3 class="subsection__heading">St Malachy’s College, Belfast</h3>
-          <p><time>2009</time></p>
-        </header>
-        <main class="subsection__content">
-          <table>
-            <thead>
-              <tr>
-                <th colspan="2">A-Level</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Art &amp; Design</td>
-                <td>A</td>
-              </tr>
-              <tr>
-                <td>Biology</td>
-                <td>B</td>
-              </tr>
-              <tr>
-                <td>French</td>
-                <td>A</td>
-              </tr>
-              <tr>
-                <td>Geography</td>
-                <td>B</td>
-              </tr>
-            </tbody>
-          </table>
-        </main>
-      </article>
-    </section>
   </main>
 
   <footer class="footer">
-    <p><small>&copy; Paul Rooney 2021. All rights reserved.</small></p>
+    <p><small>&copy; Paul Rooney <span id="date"></span>. All rights reserved.</small></p>
   </footer>
+
+  <script async>
+    let date = new Date();
+
+    document.body.querySelector('#date').textContent = date.getFullYear();
+  </script>
 </body>
 </html>
