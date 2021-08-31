@@ -90,6 +90,27 @@ body {
           margin-right: 1rem;
         }
 
+          .nav__link {
+            position: relative;
+            text-decoration: none;
+          }
+
+            .nav__link::after {
+              background-color: currentColor;
+              content: '';
+              height: 2px;
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              transform: scaleX(0);
+            }
+
+              .nav__link:focus::after,
+              .nav__link:hover::after {
+                transform: scaleX(1);
+                transition: transform 125ms ease;
+              }
+
 
   .section {}
 
