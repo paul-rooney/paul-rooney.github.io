@@ -100,7 +100,7 @@ body {
               content: '';
               height: 2px;
               position: absolute;
-              bottom: calc(100% + 2px);
+              top: calc(100% + 2px);
               left: 0;
               width: 100%;
               transform: scaleX(0);
