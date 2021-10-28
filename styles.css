@@ -3,12 +3,6 @@
   --gap: 2rem;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 html:focus-within {
   scroll-behavior: smooth;
 }
@@ -30,7 +24,7 @@ body {
 
 .body {
   display: grid;
-  font-family: 'Arsenal', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'Arsenal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   grid-template-columns: 1fr;
   grid-template-rows: min-content   /*  NAV   */
                       min-content   /* HEADER */
@@ -59,7 +53,6 @@ body {
     .footer > * {
       grid-column: 2;
     }
-
 
   .footer > * {
     /* justify-self: end; */
@@ -113,6 +106,7 @@ body {
               }
 
 
+
   .section {}
 
     .section__heading {
@@ -151,6 +145,10 @@ body {
         margin-top: 1rem;
       }
 
+      .subsection__content ul {
+        list-style-type: circle;
+      }
+
       .subsection + .subsection {
         margin-top: 3rem;
       }
@@ -185,6 +183,15 @@ body {
         padding: 0;
         width: 50%;
       }
+
+
+
+  .portfolio {
+
+  }
+    .portfolio ul {
+      list-style-type: none !important;
+    }
 
 
 
