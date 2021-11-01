@@ -88,6 +88,13 @@ body {
             text-decoration: none;
           }
 
+          .nav__link--highlight {
+            font-family: 'Yellowtail', cursive;
+            letter-spacing: normal;
+            text-transform: none;
+            transform: rotateX(-2deg);
+          }
+
             .nav__link::after {
               background-color: currentColor;
               content: '';
