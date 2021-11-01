@@ -40,6 +40,76 @@ time {
 
 
 
+.heading-1 {
+  font-weight: 300;
+  font-size: 102px;
+  letter-spacing: -1.5px;
+}
+.heading-2 {
+  font-weight: 300;
+  font-size: 64px;
+  letter-spacing: -0.5px;
+}
+.heading-3 {
+  font-weight: 400;
+  font-size: 51px;
+  letter-spacing: 0px;
+}
+.heading-4 {
+  font-weight: 400;
+  font-size: 36px;
+  letter-spacing: 0.25px;
+}
+.heading-5 {
+  font-weight: 400;
+  font-size: 25px;
+  letter-spacing: 0px;
+}
+.heading-6 {
+  font-weight: 500;
+  font-size: 21px;
+  letter-spacing: 0.15px;
+}
+.subtitle-1 {
+  font-weight: 400;
+  font-size: 17px;
+  letter-spacing: 0.15px;
+}
+.subtitle-2 {
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.1px;
+}
+.body-1 {
+  font-weight: 400;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+}
+.body-2 {
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.25px;
+}
+.button {
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+.caption {
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+}
+.overline {
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+
+
 .page__heading {
   font-size: 3rem;
   letter-spacing: -.0375em;
