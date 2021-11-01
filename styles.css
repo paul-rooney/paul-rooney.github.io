@@ -194,10 +194,10 @@ body {
 
 
   .portfolio {
-
+    list-style-type: none;
   }
-    .portfolio ul {
-      list-style-type: none !important;
+    .portfolio__project {
+      
     }
 
 
