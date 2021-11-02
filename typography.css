@@ -38,10 +38,14 @@ time {
   font-style: italic;
 }
 
-
+code,
+pre {
+  font-size: .8rem;
+}
 
 .page__heading {
   font-size: 3rem;
+  font-weight: bold;
   letter-spacing: -.0375em;
   margin-top: 3rem;
   margin-bottom: 2rem;
