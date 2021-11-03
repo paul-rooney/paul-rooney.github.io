@@ -42,6 +42,7 @@ code,
 pre {
   font-family: 'Share Tech Mono', monospace;
   font-size: .8rem;
+  white-space: pre-line;
 }
 
 .page__heading {

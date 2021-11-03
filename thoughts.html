@@ -89,32 +89,31 @@
           <li>(optionally) the name of the publication to update the <code>&lt;title&gt;</code> tag with.</li>
         </ul>
         <p>Here’s what that looks like:</p>
-        <pre>function getPosts(domain, number_of_posts, report, publication) {
+        <pre>
+function getPosts(domain, number_of_posts, publication, report) {
   let str;
   let arr = [];
 
-  if (report === '') {
-    str = `${domain}/wp-json/wp/v2/posts?per_page=${number_of_posts}`;
-  } else {
+  if (report) {
     str = `${domain}/wp-json/wp/v2/posts?categories=${report}`;
+  } else {
+    str = `${domain}/wp-json/wp/v2/posts?per_page=${number_of_posts}`;
   }
 
-  fetch(str, { credentials: 'same-origin' })
-    .then((response) => response.json())
-    .then((posts) => {
+  fetch(str, { … })
+    .then(response => response.json())
+    .then(posts => {
       posts.forEach((post, index) => {
         Promise.all([
           fetch(`${domain}/wp-json/wp/v2/media/${post.featured_media}`),
           fetch(`${domain}/wp-json/wp/v2/categories/${post.categories[0]}`),
         ])
-          .then((responses) => {
+          .then(responses => {
             return Promise.all(
-              responses.map((response) => {
-                return response.json();
-              })
+              responses.map(response => response.json())
             );
           })
-          .then((response) => {
+          .then(response => {
             let postObject = {
               category: response[1].name,
               excerpt: truncateExcerpt(post.excerpt.rendered),
@@ -126,20 +125,23 @@
 
             buildDOM(postObject);
 
-            if ((report && index === response.length - 1) || (!report && index === number_of_posts - 1)) {
+            if (report && index === response.length - 1 ||
+               !report && index === number_of_posts - 1) {
               enableDownloadButton();
               updateDocumentTitle(publication);
               updateDOM(publication);
             }
           })
-          .catch((err) => console.warn(err));
+          .catch(…);
       });
     })
-    .catch((err) => console.warn(err));
+    .catch(…);
 }
         </pre>
-        <p>The first thing it does is creates two empty variables: <code>str</code> and <code>arr</code> (guess what type of data they’re supposed to hold…). Then, it checks if a category was specified and passed in as an argument. If it’s included, <code>str</code> is set to the URL of the domain to search for that posts in that category. If it’s not included, <code>str</code> is set to the URL of our domain along with the number of recent posts we’ve requested.</p>
-        <p>Next, it takes that URL and runs a fetch request, returning a JSON object which it can then loop through. This is where it gets a bit messy &mdash; this is absolutely not the cleanest or neatest way of doing this, but it’s working as I need it to, so I can live with it.
+        <p>The first thing it does is create an empty variable: <code>str</code> (guess what type of data that’s supposed to hold…). Then, it checks if a category was specified and passed in as an argument. If it’s included, <code>str</code> is set to the URL of the domain to search for that posts in that category. If it’s not included, <code>str</code> is set to the URL of our domain along with the number of recent posts we’ve requested.</p>
+        <p>Next, it takes that URL and runs a fetch request, returning a JSON object which it can then loop through. This is where it gets a bit messy &mdash; this is absolutely not the cleanest or neatest way of doing this, but it’s working as needed, so I can live with it.</p>
+        <p>For each post in the JSON object, the function returns two Promises: one for the post’s featured image, and one for its primary category. Once these have been returned, the variable <code>postObject</code> holds all of this data in an Object, which is passed to the next function, <code>buildDOM()</code> as its only argument. I’ll cover this in a moment.</p>
+        <p>Finally, once the <code>forEach()</code> function has finished, the download button is enabled, the <code>&lt;title&gt;</code> tag is updated, and any elements not needed in the final template are deleted from the <code>&lt;body&gt;</code>.</p>
       </main>
     </article>
   </main>
