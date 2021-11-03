@@ -41,8 +41,12 @@ time {
 code,
 pre {
   font-family: 'Share Tech Mono', monospace;
-  font-size: .8rem;
   white-space: pre-wrap;
+}
+
+pre {
+  overflow-x: scroll;
+  width: 80ch;
 }
 
 .page__heading {
