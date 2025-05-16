@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+
+        <title>CV &middot; Paul Rooney</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=DM+Mono:wght@300&family=Share+Tech+Mono&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./reset.css" />
+        <link rel="stylesheet" href="./typography.css" />
+        <link rel="stylesheet" href="./styles.css" />
+
+        <meta
+            name="description"
+            content="This is the personal website of Paul Rooney, a senior software engineer based in Belfast, Northern Ireland"
+        />
+        <link rel="canonical" href="https://www.paul-rooney.github.io/" />
+
+        <!-- <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
+        <meta name="theme-color" content="#C7584B" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#D66B74" media="(prefers-color-scheme: dark)" />
+    </head>
+
+    <body class="body">
+        <nav class="nav">
+            <ul class="nav__menu">
+                <!-- <li class="nav__item">
+        <a href="./" class="nav__link">&lt;projects /&gt;</a>
+      </li> -->
+                <li class="nav__item">
+                    <a href="./" class="nav__link">&lt;cv /&gt;</a>
+                </li>
+                <!-- <li class="nav__item">
+        <a href="./tinkering" class="nav__link">&lt;tinkering /&gt;</a>
+      </li> -->
+            </ul>
+        </nav>
+
+        <header class="header">
+            <h1 class="page__heading">Snippets</h1>
+        </header>
+
+        <main class="main">
+            <section>
+				<h2>Context</h2>
+				<pre>
+					<code>
+export class ContextRequestEvent extends Event {
+	public readonly context: string;
+	public readonly callback: (value: unknown, unsubscribe?: () => void) => void;
+	public readonly subscribe: boolean;
+
+	constructor(context: string, callback: (value: any, unsubscribe?: () => void) => void, subscribe: boolean) {
+		super("context-request", {
+			bubbles: true,
+			composed: true,
+		});
+		this.context = context;
+		this.callback = callback;
+		this.subscribe = subscribe;
+	}
+}
+
+export class ContextProvider<T> extends EventTarget {
+	private _value: T;
+	private _context: string;
+
+	public get value(): T {
+		return this._value;
+	}
+
+	public set value(value: T) {
+		this._value = value;
+		this.dispatchEvent(new Event("change"));
+	}
+
+	private get context(): string {
+		return this._context;
+	}
+
+	constructor(target: HTMLElement, context: string, initialValue: T) {
+		super();
+		this._context = context;
+		this._value = initialValue;
+
+		if (target) {
+			this.attach(target);
+		}
+	}
+
+	private attach = (target: HTMLElement) => {
+		target.addEventListener("context-request", this.handle);
+	};
+
+	public detach = (target: HTMLElement) => {
+		target.removeEventListener("context-request", this.handle);
+	};
+
+	private handle = (event: Event) => {
+		const contextRequestEvent = event as ContextRequestEvent;
+
+		if (contextRequestEvent.context === this.context) {
+			if (contextRequestEvent.subscribe) {
+				const unsubscribe = () => this.removeEventListener("change", update);
+				const update = () => contextRequestEvent.callback(this.value, unsubscribe);
+				this.addEventListener("change", update);
+				update();
+			} else {
+				contextRequestEvent.callback(this.value);
+			}
+			contextRequestEvent.stopPropagation();
+		}
+	};
+}					
+					</code>
+				</pre>
+			</section>
+            <section>
+				<h2>HTML tagged string</h2>
+				<pre>
+					<code>
+class Html extends String {}
+
+export const htmlRaw = (str: string): Html => new Html(str);
+
+export const htmlEncode = (value: unknown): Html => {
+    if (value instanceof Html) {
+        return value;
+    } else {
+        return htmlRaw(
+            String(value).replace(
+                /[&<>'"]/g,
+                (tag) =>
+                    ({
+                        "&": "&amp;",
+                        "<": "&lt;",
+                        ">": "&gt;",
+                        "'": "&#39;",
+                        '"': "&quot;",
+                    }[tag] || tag)
+            )
+        );
+    }
+};
+
+export const html = (strings: TemplateStringsArray, ...values: unknown[]): string =>
+    htmlRaw(String.raw({ raw: strings }, ...values.map(htmlEncode))) as string;				
+					</code>
+				</pre>
+			</section>
+        </main>
+
+        <footer class="footer">
+            <p>
+                <small>&copy; Paul Rooney <span id="date"></span>. All rights reserved.</small>
+            </p>
+        </footer>
+
+        <script async>
+            document.body.querySelector("#date").textContent = new Date().getFullYear();
+        </script>
+    </body>
+</html>
